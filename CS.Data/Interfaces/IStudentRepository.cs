@@ -6,7 +6,7 @@ namespace CS.Data.Interfaces
     {
         void Add(Student student);
         IEnumerable<Student> GetAll();
-        Student Get(Guid id);
+        Student GetById(Guid id);
         void Update(Guid id, Student student);
         void Delete(Guid id);
     }

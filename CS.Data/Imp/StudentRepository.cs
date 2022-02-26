@@ -1,5 +1,6 @@
 ﻿using CS.Data.Interfaces;
 using CS.Domain;
+using Microsoft.EntityFrameworkCore;
 
 namespace CS.Data.Imp
 {
@@ -20,7 +21,7 @@ namespace CS.Data.Imp
 
         public void Delete(Guid id)
         {
-            Student student = Get(id);
+            Student student = GetById(id);
 
             if (student != null)
             {
@@ -29,9 +30,9 @@ namespace CS.Data.Imp
             }
         }
 
-        public Student Get(Guid id)
+        public Student GetById(Guid id)
         {
-            return _db.Students.First(x => x.Id == id);
+            return _db.Students.AsNoTracking().FirstOrDefault(x => x.Id == id);
         }
 
         public IEnumerable<Student> GetAll()
@@ -41,7 +42,7 @@ namespace CS.Data.Imp
 
         public void Update(Guid id, Student studentDTO)
         {
-            Student student = Get(id);
+            Student student = GetById(id);
 
             if (student != null)
             {

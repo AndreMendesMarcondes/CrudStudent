@@ -23,9 +23,9 @@ namespace CS.Service.Imp
             _repository.Delete(id);
         }
 
-        public Student Get(Guid id)
+        public Student GetById(Guid id)
         {
-            return _repository.Get(id);
+            return _repository.GetById(id);
         }
 
         public IEnumerable<Student> GetAll()
